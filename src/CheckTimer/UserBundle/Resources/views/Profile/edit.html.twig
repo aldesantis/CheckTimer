@@ -1,0 +1,20 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Modifica profilo{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Modifica profilo</h1>
+
+        <p>Puoi vedere come appare il tuo profilo <a href="{{ path('profile_show', { 'username': app.user.username }) }}">qui</a>.</p>
+        <p>Vuoi <a href="http://gravatar.com">cambiare il tuo avatar</a>?</p>
+
+        <form action="{{ path('profile_edit') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+
+            <input type="submit" value="MODIFICA PROFILO" />
+        </form>
+
+        <p><a href="{{ path('profile_delete') }}">Cancella profilo</a></p>
+    </div>
+{% endblock %}

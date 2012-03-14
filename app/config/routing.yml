@@ -1,0 +1,14 @@
+CheckTimerGameBundle:
+    resource: "@CheckTimerGameBundle/Controller/"
+    type:     annotation
+    prefix:   /game
+
+CheckTimerUserBundle:
+    resource: "@CheckTimerUserBundle/Controller/"
+    type:     annotation
+    prefix:   /user
+
+CheckTimerPageBundle:
+    resource: "@CheckTimerPageBundle/Controller/"
+    type:     annotation
+    prefix:   /

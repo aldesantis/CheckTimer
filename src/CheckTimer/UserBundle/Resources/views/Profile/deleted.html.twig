@@ -1,0 +1,18 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Account cancellato{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Account cancellato</h1>
+
+        <p>Come promesso, il tuo account è stato cancellato.</p>
+
+        <p>Ci dispiace molto vederti andare via :-(</p>
+
+        <p>
+            Se hai tempo, <a href="{{ path('page_view', { 'slug': 'contacts' }) }}">facci sapere</a>
+            perché hai deciso di andartene.
+        </p>
+    </div>
+{% endblock %}

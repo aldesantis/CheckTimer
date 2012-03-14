@@ -1,0 +1,27 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Benvenuto!</h1>
+
+        <p>Benvenuto in CheckTimer, un fantastico gioco a premi tutto italiano.</p>
+
+        <p>
+            Avvia il timer e fermalo entro i limiti imposti dal gioco.<br />
+            Attento a non perdere, o dovrai ricominciare da capo!
+        </p>
+
+        <p>Ogni mese il giocatore più abile potrà scegliere un premio che gli
+        sarà recapitato a nostre spese. Sarai tu il fortunato in cima alla
+        classifica?</p>
+
+        <p>Sei pronto a giocare?</p>
+
+        {#<button onclick="location.href='{{ path('game_run') }}'">#}
+        <button onclick="location.href='{{ path('level_play') }}'">
+            GIOCA ADESSO!
+        </button>
+
+        <p>Non sei convinto? Dai un'occhiata al <a href="{{ path('page_view', { 'slug': 'rules' }) }}">regolamento</a>.</p>
+    </div>
+{% endblock %}

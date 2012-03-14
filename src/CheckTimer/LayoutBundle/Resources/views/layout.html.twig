@@ -1,0 +1,82 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('/bundles/checktimerlayout/css/main.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('/bundles/checktimerlayout/js/jquery.js') }}"></script>
+    <script src="{{ asset('/bundles/checktimerlayout/js/forms.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="container">
+        <a href="{{ url('page_index') }}">
+            <header>
+            </header>
+        </a>
+
+        <div class="box" id="menu">
+            <a href="{{ path('page_index') }}">Home</a> &bull;
+            <a href="{{ path('highscore_list') }}">Classifica</a> &bull;
+
+            {% if is_granted('ROLE_USER') %}
+                <a href="{{ path('profile_show', { 'username': app.user.username }) }}">Profilo</a> &bull;
+                <a href="{{ path('security_logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ path('security_login') }}">Login</a> &bull;
+                <a href="{{ path('registration_register') }}">Registrati</a>
+            {% endif %}
+        </div>
+
+        {% set ad1 = show_ad() %}
+        {% if ad1 != "" %}
+            <div class="box">
+                {{ ad1 | raw }}
+            </div>
+        {% endif %}
+
+        {% for flash in app.session.flashes %}
+            <div class="box">
+                {{ flash }}
+            </div>
+        {% endfor %}
+
+        {% block contents %}{% endblock %}
+
+        {% set ad2 = show_ad() %}
+        {% if ad2 != "" %}
+            <div class="box">
+                {{ ad2 | raw }}
+            </div>
+        {% endif %}
+
+        <footer>
+            <p id="left">
+                Copyright &copy; {{ "now" | date('Y') }} <a href="{{ url('page_index') }}">CheckTimer.it</a>
+            </p>
+
+            <p id="right">
+                <a href="{{ path('page_view', { 'slug': 'rules' }) }}">Regolamento</a> |
+                <a href="{{ path('page_view', { 'slug': 'contacts' }) }}">Contatti</a>
+            </p>
+        </footer>
+    </div>
+
+    {% if ga_code and ga_code != "" %}
+        <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{ ga_code }}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+        </script>
+    {% endif %}
+{% endblock %}

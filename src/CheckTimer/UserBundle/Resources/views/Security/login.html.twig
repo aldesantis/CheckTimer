@@ -1,0 +1,36 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Login{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Login</h1>
+
+        <p>
+            Non hai un account? <a href="{{ path('registration_register') }}">Registrati</a>!<br />
+            Hai perso la password? <a href="{{ path('passwordReset_request') }}">Recuperala</a>!
+        </p>
+
+        {% if error %}
+            <p>ERRORE: {{ error.message }}</p>
+        {% endif %}
+
+        <form action="{{ path('security_loginCheck') }}" method="post">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label for="username">Username:</label></td>
+                        <td><input type="text" id="username" name="_username" value="{{ last_username }}" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input type="password" id="password" name="_password" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <input type="submit" value="LOGIN" />
+        </form>
+    </div>
+{% endblock %}

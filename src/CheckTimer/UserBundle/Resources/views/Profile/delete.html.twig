@@ -1,0 +1,21 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Cancellazione account{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Cancellazione account</h1>
+
+        <p>
+            Sei sicuro di voler cancellare l'account <strong>{{ app.user.username }}</strong>
+            e tutti i dati ad esso collegati? In questo modo non potrai più ricevere alcun
+            premio. Non si può tornare indietro!
+        </p>
+
+        <form action="{{ path('profile_delete') }}" method="post">
+            <p>
+                <input type="submit" value="CANCELLA ACCOUNT" />
+            </p>
+        </form>
+    </div>
+{% endblock %}

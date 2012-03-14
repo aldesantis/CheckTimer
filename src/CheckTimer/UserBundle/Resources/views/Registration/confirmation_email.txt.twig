@@ -1,0 +1,16 @@
+{% extends "CheckTimerLayoutBundle::email_layout.txt.twig" %}
+
+{% block body %}
+Ti sei registrato al gioco a premi online CheckTimer sotto lo username di
+{{ user.username }}.
+
+Per confermare che questo indirizzo email ti appartiene, clicca sul seguente
+collegamento:
+
+{{ url('registration_confirm', { 'code': user.code }) }}
+
+Se non confermerai l'indirizzo email entro 24 ore, la tua registrazione sarà
+cancellata e dovrai ricominciare da capo. Facciamo questo per evitare lo spam.
+
+Ti auguriamo una buona permanenza su CheckTimer!
+{% endblock %}

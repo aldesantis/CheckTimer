@@ -1,0 +1,14 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Email modificata{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Email modificata!</h1>
+
+        <p>Il tuo indirizzo email è stato modificato con successo!</p>
+        <p>Il nuovo indirizzo è: <strong>{{ user.email }}</strong></p>
+
+        <p>Speriamo di averti fatto felice!</p>
+    </div>
+{% endblock %}

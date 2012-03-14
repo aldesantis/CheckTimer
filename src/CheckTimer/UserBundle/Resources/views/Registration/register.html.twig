@@ -1,0 +1,22 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Registrazione{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Registrazione</h1>
+
+        <p>Compila il modulo sottostante per registrarti a CheckTimer.</p>
+        <p>NOTA: L'inserimento di dati falsi comporterà l'esclusione dal gioco.</p>
+
+        <form action="{{ path('registration_register') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+
+            <input type="submit" value="REGISTRATI" />
+        </form>
+
+        <p><a href="https://www.iubenda.com/privacy-policy/420580" class="iubenda-black " id="iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+<script>(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; w.addEventListener ? w.addEventListener("load", loader, false) : w.attachEvent("onload", loader);})(window, document);</script>
+        </p>
+    </div>
+{% endblock %}

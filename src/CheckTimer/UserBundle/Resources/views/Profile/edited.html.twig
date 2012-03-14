@@ -1,0 +1,21 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Profilo modificato{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Profilo modificato!</h1>
+
+        <p>Il tuo profilo è stato modificato con successo!</p>
+
+        {% if emailChanged %}
+            <p>
+                Tuttavia, per confermare il tuo indirizzo email, dovrai cliccare
+                sul link contenuto nel messaggio che ti abbiamo inviato. Se non
+                lo farai entro 24 ore, la tua richiesta sarà cancellata.
+            </p>
+        {% endif %}
+
+        <p>Per vedere il nuovo profilo clicca <a href="{{ path('profile_show', { 'username': app.user.username }) }}">qui</a>.</p>
+    </div>
+{% endblock %}

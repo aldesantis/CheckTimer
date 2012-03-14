@@ -1,0 +1,17 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Reimposta password{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Reimposta password</h1>
+
+        <p>Compila il modulo sottostante per reimpostare la tua password.</p>
+
+        <form action="{{ path('passwordReset_request') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+
+            <input type="submit" value="REIMPOSTA" />
+        </form>
+    </div>
+{% endblock %}

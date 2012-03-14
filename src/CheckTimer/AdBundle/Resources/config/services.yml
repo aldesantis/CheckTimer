@@ -1,0 +1,6 @@
+services:
+    twig.extension.ad:
+        class: CheckTimer\AdBundle\Twig\Extension\AdExtension
+        tags:
+            - { name: twig.extension }
+        arguments: [@doctrine.orm.entity_manager]

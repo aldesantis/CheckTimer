@@ -1,0 +1,11 @@
+{% extends "CheckTimerLayoutBundle::email_layout.txt.twig" %}
+
+{% block body %}
+Hai recentemente modificato l'indirizzo email associato al tuo profilo su
+CheckTimer. Per confermare il nuovo indirizzo clicca su questo link:
+
+{{ url('profile_emailConfirm', { 'code': user.code }) }}
+
+Se non cliccherai sul link entro 24 ore, la tua richiesta sarà cancellata e
+dovrai ricominciare da capo. Facciamo questo per prevenire lo spam.
+{% endblock %}

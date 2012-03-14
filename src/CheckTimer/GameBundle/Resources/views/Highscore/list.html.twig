@@ -1,0 +1,35 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Classifica{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Classifica</h1>
+
+        {% if highscores|length > 0 %}
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Utente</th>
+                    <th>Livello</th>
+                    <th>Tempo</th>
+                </tr>
+
+                {% for highscore in highscores %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            <a href="{{ path('profile_show', { 'username': highscore.user.username }) }}">
+                                {{ highscore.user.username }}
+                            </a>
+                        </td>
+                        <td>{{ highscore.level.id }}</td>
+                        <td>{{ highscore.time }} secondi</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Non è stato registrato nessun punteggio finora.</p>
+        {% endif %}
+    </div>
+{% endblock %}

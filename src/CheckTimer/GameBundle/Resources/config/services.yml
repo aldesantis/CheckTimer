@@ -1,0 +1,5 @@
+services:
+    checktimer.time.twig.extension:
+        class: CheckTimer\GameBundle\Twig\Extension\TimeExtension
+        tags:
+            - { name: twig.extension }

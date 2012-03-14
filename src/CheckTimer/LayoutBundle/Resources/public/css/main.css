@@ -1,0 +1,98 @@
+body, table, input, textarea {
+    font-family: Verdana, Arial, Helvetica;
+}
+
+body, table  {
+    text-align: center;
+    color: #E5E5E5;
+}
+
+body {
+    background: black;
+    background: url(../images/background.png);
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 5px;
+}
+
+a {
+    text-decoration: underline;
+    color: #E5E5E5;
+}
+
+footer a, #menu a, a:hover {
+    text-decoration: none;
+}
+
+textarea, input, select {
+    width: 200px;
+    border: 1px solid grey;
+}
+
+textarea:hover, input:hover {
+    border-color: black;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type = submit], button {
+    font-size: 25px;
+    padding: 5px;
+    width: auto;
+}
+
+td.error {
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left !important;
+}
+
+#container {
+    /* width: 730px; */
+    width: 825px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    background: url(../images/logo.png);
+    background-repeat: no-repeat;
+    height: 150px;
+}
+
+.box {
+    background: #C14704;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+#timer {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+footer {
+    font-size: 10px;
+}
+
+footer #left {
+    float: left;
+}
+
+footer #right {
+    float: right;
+    text-align: right;
+}

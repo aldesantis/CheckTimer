@@ -1,0 +1,10 @@
+{% extends "CheckTimerLayoutBundle::email_layout.txt.twig" %}
+
+{% block body %}
+Hai richiesto la reimpostazione della tua password. Per terminare la procedura,
+clicca sul seguente link:
+
+{{ url('passwordReset_confirm', { 'password_reset_code': user.passwordResetCode }) }}
+
+Fai in fretta: tra 24 ore il link non sarà più valido!
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Profilo di {{ user.username }}{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>{{ user.username }}</h1>
+
+        <img src="{{ gravatar(user.email) }}" />
+
+        <p>Registrato dal {{ user.registeredAt | date('d/m/Y') }}.</p>
+
+        {% if user.equals(app.user) %}
+            <p><a href="{{ path('profile_edit') }}">Modifica profilo</a></p>
+        {% endif %}
+
+        <p><a href="{{ path('highscore_userList', { 'username': user.username }) }}">Vedi i punteggi</a></p>
+    </div>
+
+    <div class="box">
+        <h2>Statistiche</h2>
+
+        {% if stats %}
+            <p>Punteggi registrati: <strong>{{ stats.highscores }}</strong></p>
+            <p>
+                Risultato migliore: livello <strong>{{ stats.best.level }}</strong>
+                in <strong>{{ stats.best.time }}</strong> secondi.
+            </p>
+            <p>
+                Risultato peggiore: livello <strong>{{ stats.worst.level }}</strong>
+                in <strong>{{ stats.worst.time }}</strong> secondi.
+            </p>
+            <p>
+                Tempo medio per livello: <strong>{{ stats.avg }}</strong> secondi.
+            </p>
+        {% else %}
+            <p>L'utente non ha ancora giocato alcuna partita.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% if app.request.method == 'POST' %}
+        <script src="{{ asset('/bundles/checktimergame/js/jquery.timers.js') }}"></script>
+        <script src="{{ asset('/bundles/checktimergame/js/timer.js') }}"></script>
+    {% endif %}
+{% endblock %}
+
+{% block title %}Livello {{ level.id }}{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Livello {{ level.id }}</h1>
+
+        <p>Tempo minimo: <strong>{{ level.minTime | parse_limit }}</strong></p>
+        <p>Tempo massimo: <strong>{{ level.maxTime | parse_limit }}</strong></p>
+
+        <form action="{{ path('level_play') }}" method="post">
+            {% if app.request.method == 'POST' %}
+                <input type="submit" value="STOP" />
+            {% else %}
+                <input type="submit" value="START" />
+            {% endif %}
+        </form>
+    </div>
+
+    {% if app.request.method == 'POST' %}
+        <div id="timer" class="box"></div>
+    {% endif %}
+{% endblock %}

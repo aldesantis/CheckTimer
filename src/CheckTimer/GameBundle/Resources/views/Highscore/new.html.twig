@@ -1,0 +1,24 @@
+{% extends "CheckTimerLayoutBundle::layout.html.twig" %}
+
+{% block title %}Punteggio registrato!{% endblock %}
+
+{% block contents %}
+    <div class="box">
+        <h1>Punteggio registrato!</h1>
+
+        <p>
+            Congratulazioni, il tuo punteggio è stato registrato!<br />
+            Chissà se alla prossima premiazione vincerai qualcosa!
+        </p>
+
+        <p>
+            Sei arrivato al livello <strong>{{ highscore.level.id }}</strong> in
+            <strong>{{ highscore.time }}</strong> secondi.
+        </p>
+
+        <p>
+            Vai alla <a href="{{ path('highscore_list') }}">classifica</a>
+            oppure visita il tuo <a href="{{ path('profile_show', { 'username': app.user.username }) }}">profilo</a>.
+        </p>
+    </div>
+{% endblock %}
