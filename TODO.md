@@ -11,6 +11,7 @@ Global
       * sets the From header properly;
    - Write unit tests where possible.
    - Add translations.
+   - Create admin panel.
 
 GameBundle
 ----------
