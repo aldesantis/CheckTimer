@@ -36,7 +36,7 @@ Open a terminal and type:
 Copy the file **app/config/parameters.yml.dist** into **app/config/parameters.yml**
 and edit the parameters to match your server's configuration.
 
-### Create the databse schema
+### Create the database schema
 
 Open a terminal and, in your project's root, type the following commands:
 
