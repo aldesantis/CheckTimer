@@ -17,3 +17,8 @@ GameBundle
 ----------
 
    - Fix level numeration (numerate levels internally).
+
+UserBundle
+----------
+
+   - Use **FOSUserBundle**.
